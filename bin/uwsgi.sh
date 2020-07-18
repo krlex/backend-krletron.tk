@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 BIN_DIR=`dirname $0`
 PROJECT_ROOT="${BIN_DIR}/.."
