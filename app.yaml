@@ -7,11 +7,10 @@ env_variables:
   BUCKET_NAME: "freenit"
 
 handlers:
-# Matches requests to /images/... to files in static/images/...
-- url: /images
-  static_dir: static/images
+  - url: /.*
+  - script: bin/init.sh
+  - script: bin/uwsgi.sh
 
-- url: /.*
-  secure: always
-  redirect_http_response_code: 301
-  script: auto
+libraries:
+  - name: freenit
+  - name: flask
