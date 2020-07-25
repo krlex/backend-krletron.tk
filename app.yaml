@@ -1,16 +1,11 @@
-runtime: python38 # or python37 for Python 3.7
-service: freenit-backend
-
-instance_class: F2
-
-env_variables:
-  BUCKET_NAME: "freenit"
+runtime: python27 # or python37 for Python 3.7
+api_version: 1
+threadsafe: true
 
 handlers:
-  - url: /.*
-  - script: bin/init.sh
-  - script: bin/uwsgi.sh
+- url: /.*
+  script: main.app
 
 libraries:
-  - name: freenit
-  - name: flask
+- name: flask
+  version: 0.12
